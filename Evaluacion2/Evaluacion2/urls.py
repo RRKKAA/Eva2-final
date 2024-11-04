@@ -20,6 +20,18 @@ from EvaApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
+
+    path('usuarios/',views.listadoUsuarios),
+    path('agregarUsuario/',views.agregarUsuario),
+    path('actualizarUsuario/',views.actualizarUsuario),
+    path('eliminarUsuario/',views.eliminarUsuario),
+    path('usuario/',views.detalleUsuario),
+
+    path('computadoras/',views.listadoComputadoras),
+    path('agregarComputadora/',views.agregarComputadora),
+    path('actualizarComputadora/',views.actualizarComputadora),
+    path('eliminarComputadora/',views.eliminarComputadora),
+
     path('videojuegos/',views.listadoVideojuegos),
     path('agregarVideojuego/',views.agregarJuego),
     path('actualizarJuego/<int:id>',views.actualizarJuego),

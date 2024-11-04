@@ -29,8 +29,8 @@
                 <td>{{ videojuego.genero }}</td>
                 <td>{{ videojuego.tamanio }}</td>
                 <td>{{ videojuego.costo }}</td>
-                <td><a href="/actualizarJuego/{{ Videojuego.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
-                <td><a href="/eliminarJuego/{{ Videojuego.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+                <td><a href="/actualizarJuego/{{ videojuego.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
+                <td><a href="/eliminarJuego/{{ videojuego.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
             </tr>
             {% endfor %}
         </tbody>
