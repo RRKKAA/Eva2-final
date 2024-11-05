@@ -23,14 +23,14 @@ urlpatterns = [
 
     path('usuarios/',views.listadoUsuarios),
     path('agregarUsuario/',views.agregarUsuario),
-    path('actualizarUsuario/',views.actualizarUsuario),
-    path('eliminarUsuario/',views.eliminarUsuario),
-    path('usuario/',views.detalleUsuario),
+    path('actualizarUsuario/<int:id>',views.actualizarUsuario),
+    path('eliminarUsuario/<int:id>',views.eliminarUsuario),
+    path('usuario/<int:id>',views.detalleUsuario),
 
     path('computadoras/',views.listadoComputadoras),
     path('agregarComputadora/',views.agregarComputadora),
-    path('actualizarComputadora/',views.actualizarComputadora),
-    path('eliminarComputadora/',views.eliminarComputadora),
+    path('actualizarComputadora/<int:id>',views.actualizarComputadora),
+    path('eliminarComputadora/<int:id>',views.eliminarComputadora),
 
     path('videojuegos/',views.listadoVideojuegos),
     path('agregarVideojuego/',views.agregarJuego),

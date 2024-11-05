@@ -29,8 +29,8 @@
                 <td>{{ videojuego.genero }}</td>
                 <td>{{ videojuego.tamanio }}</td>
                 <td>{{ videojuego.costo }}</td>
-                <td><a href="/actualizarJuego/{{ videojuego.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
-                <td><a href="/eliminarJuego/{{ videojuego.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+                <td><a href="/actualizarJuego/{{ videojuego.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>actualizar</td>
+                <td><a href="/eliminarJuego/{{ videojuego.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>eliminar</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -44,7 +44,7 @@
 
     {% endif %}
 
-    <a href="../" class="btn btn-danger">Volver</a>
+    <a href="../usuarios" class="btn btn-danger">Volver</a>
     <a href="../agregarVideojuego" class="btn btn-info float-end">Agregar Videojuego</a>
     
 </body>

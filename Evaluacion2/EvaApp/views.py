@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import (render, redirect, get_object_or_404)
 from EvaApp.forms import (formVideojuego, formUsuario, formComputadora)
-from EvaApp.models import (videojuego, usuario, computadora)
+from EvaApp.models import (Videojuego, Usuario, Computadora)
 
 # Create your views here.
 
@@ -8,7 +8,7 @@ def index(request):
     return render(request,"index.html")
 
 def listadoUsuarios(request):
-    usuarios = usuario.objects.all()
+    usuarios = Usuario.objects.all()
     data = {'usuarios':usuarios}
     return render(request,"listadoUsuarios.html",data)
 
@@ -23,7 +23,7 @@ def agregarUsuario(request):
     return render(request,"agregarUsuario.html",data)
 
 def actualizarUsuario(request, id):
-    usuario = usuario.objects.get(id = id)
+    usuario = Usuario.objects.get(id = id)
     form = formUsuario(instance=usuario)
     if request.method == 'POST':
         form = formUsuario(request.POST, instance=usuario)
@@ -34,7 +34,7 @@ def actualizarUsuario(request, id):
     return render(request,"agregarUsuario.html",data)
 
 def eliminarUsuario(request, id):
-    usuario = usuario.objects.get(id = id)
+    usuario = Usuario.objects.get(id = id)
     usuario.delete()
     return redirect("/usuarios")
 
@@ -43,7 +43,7 @@ def eliminarUsuario(request, id):
 
 
 def listadoVideojuegos(request):
-    videojuegos = videojuego.objects.all()
+    videojuegos = Videojuego.objects.all()
     data = {'videojuegos':videojuegos}
     return render(request,"listadoVideojuegos.html",data)
 
@@ -58,7 +58,7 @@ def agregarJuego(request):
     return render(request,"agregarVideojuego.html",data)
 
 def actualizarJuego(request, id):
-    videojuego = videojuego.objects.get(id = id)
+    videojuego = Videojuego.objects.get(id = id)
     form = formVideojuego(instance=videojuego)
     if request.method == 'POST':
         form = formVideojuego(request.POST, instance=videojuego)
@@ -69,14 +69,14 @@ def actualizarJuego(request, id):
     return render(request,"agregarVideojuego.html",data)
 
 def eliminarJuego(request, id):
-    videojuego = videojuego.objects.get(id = id)
+    videojuego = Videojuego.objects.get(id = id)
     videojuego.delete()
     return redirect("/videojuegos")
 
 
 
 def listadoComputadoras(request):
-  computadoras = computadora.objects.all()
+  computadoras = Computadora.objects.all()
   data = {'computadoras': computadoras}
   return render(request, "listadoComputadoras.html", data)
 
@@ -91,7 +91,7 @@ def agregarComputadora(request):
   return render(request, "agregarComputadora.html", data)
 
 def actualizarComputadora(request, id):
-  computadora = computadora.objects.get(pk=id)
+  computadora = Computadora.objects.get(pk=id)
   form = formComputadora(instance=computadora)
   if request.method == 'POST':
     form = formComputadora(request.POST, instance=computadora)
@@ -102,8 +102,14 @@ def actualizarComputadora(request, id):
   return render(request, "agregarComputadora.html", data)
 
 def eliminarComputadora(request, id):
-  computadora = computadora.objects.get(pk=id)
+  computadora = Computadora.objects.get(pk=id)
   computadora.delete()
   return redirect("/computadoras")
 
-def detalleUsuario():
+def detalleUsuario(request, id):
+    usuario = get_object_or_404(Usuario, pk=id)
+    #videojuegos = usuario.videojuego_set.all()
+    #computadoras = usuario.computadora_set.all()
+    videojuegos = usuario.videojuego_set.filter(usuario=usuario)
+    computadoras = usuario.computadora_set.filter(usuario=usuario)
+    return render(request, 'detalleUsuario.html', {'usuario': usuario, 'videojuegos': videojuegos, 'computadoras': computadoras})  # Pass user data to template

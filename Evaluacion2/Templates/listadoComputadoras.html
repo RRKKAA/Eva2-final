@@ -31,8 +31,8 @@
             <td>{{ computadora.gpu }}</td>
             <td>{{ computadora.cpu }} GHz</td>
             <td>{{ computadora.ram }} GB</td>
-            <td><a href="/actualizarComputadora/{{ computadora.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
-            <td><a href="/eliminarComputadora/{{ computadora.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+            <td><a href="/actualizarComputadora/{{ computadora.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>actualizar</td>
+            <td><a href="/eliminarComputadora/{{ computadora.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>eliminar</td>
           </tr>
         {% endfor %}
       </tbody>
@@ -46,7 +46,7 @@
 
   {% endif %}
 
-  <a href="../" class="btn btn-danger">Volver</a>
+  <a href="../usuarios" class="btn btn-danger">Volver</a>
   <a href="../agregarComputadora" class="btn btn-info float-end">Agregar Computadora</a>
   
 </body>

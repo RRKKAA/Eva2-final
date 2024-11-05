@@ -26,13 +26,13 @@
       <tbody>
         {% for usuario in usuarios %}
           <tr>
-            <td><a href="/detalleUsuario/{{usuario.id}}">{{ usuario.nombre }}</a></td>
+            <td><a href="/usuario/{{usuario.id}}">{{ usuario.nombre }}</a></td>
             <td>{{ usuario.apellido }}</td>
             <td>{{ usuario.telefono }}</td>
             <td>{{ usuario.ciudad }}</td>
             <td>{{ usuario.correo }}</td>
-            <td><a href="/actualizarUsuario/{{ usuario.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></td>
-            <td><a href="/eliminarUsuario/{{ usuario.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></td>
+            <td><a href="/actualizarUsuario/{{ usuario.id }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>actualizar</td>
+            <td><a href="/eliminarUsuario/{{ usuario.id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>eliminar</td>
           </tr>
         {% endfor %}
       </tbody>
